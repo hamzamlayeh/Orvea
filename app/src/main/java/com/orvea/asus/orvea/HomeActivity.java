@@ -18,4 +18,8 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent= new Intent(this,login.class);
         startActivity(intent);
     }
+
+    public void inscrire(View view) {
+        startActivity(new Intent(this,InscriptionActivity.class));
+    }
 }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Orvea</string>
+    <string name="email">Email</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="tel">Tel</string>
+    <string name="valider">Valider</string>
+    <string name="pr_nom">Prénom</string>
+    <string name="nom">Nom</string>
 </resources>
