@@ -43,6 +43,8 @@ public class ListeMembresActivity extends AppCompatActivity
         drawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_act);
         navigationView.setNavigationItemSelectedListener(this);
