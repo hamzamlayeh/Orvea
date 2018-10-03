@@ -1,5 +1,6 @@
 package com.orvea.asus.orvea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -8,7 +9,14 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import com.orvea.asus.orvea.DAO.DataItem;
+import com.orvea.asus.orvea.DAO.ListesMembreAdapter;
+
+import java.util.ArrayList;
 
 
 public class ListeMembresActivity extends AppCompatActivity
@@ -17,6 +25,10 @@ public class ListeMembresActivity extends AppCompatActivity
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle mToggle;
     Toolbar mToolbar;
+    ListView listView;
+    ArrayList<DataItem> listM=new ArrayList<DataItem>();;
+    ListesMembreAdapter myAdapter;
+    DataItem dataItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +36,7 @@ public class ListeMembresActivity extends AppCompatActivity
         setContentView(R.layout.activity_liste_membres);
 
         drawerLayout = findViewById(R.id.drawerLayout);
+        listView=findViewById(R.id.list);
         mToolbar = findViewById(R.id.nav_action);
         setSupportActionBar(mToolbar);
         mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.chlose, R.string.open);
@@ -33,6 +46,14 @@ public class ListeMembresActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_act);
         navigationView.setNavigationItemSelectedListener(this);
+
+        for(int i=0;i<10;i++){
+
+            dataItem=new DataItem( R.drawable.ic_user,"Nom Membre","Etat membre");
+            listM.add(dataItem);
+        }
+        myAdapter=new ListesMembreAdapter(this,listM);
+        listView.setAdapter(myAdapter);
     }
 
     @Override
@@ -67,5 +88,9 @@ public class ListeMembresActivity extends AppCompatActivity
                 return false;
         }
 
+    }
+
+    public void InviteMembre(View view) {
+        startActivity(new Intent(this,ListContact.class));
     }
 }

@@ -8,4 +8,5 @@
     <string name="nom">Nom</string>
     <string name="chlose">Chlose</string>
     <string name="open">Open</string>
+    <string name="ajouter_membre">Ajouter Membre</string>
 </resources>
