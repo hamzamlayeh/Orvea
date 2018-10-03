@@ -67,7 +67,7 @@ public class ListeMembresActivity extends AppCompatActivity
 
         switch (item.getItemId()) {
             case R.id.item1:
-                Toast.makeText(this, "11", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,Profile.class));
                 return true;
             case R.id.item2:
                 Toast.makeText(this, "12", Toast.LENGTH_SHORT).show();

@@ -43,12 +43,12 @@ public class ListContact extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
         checkSmsPermission();
-        ListView ls=(ListView)findViewById(R.id.listview);
+
 
         recupContact();
         final MyCustomAdapter myadpter= new MyCustomAdapter(Items);
 
-       ls=(ListView)findViewById(R.id.listview);
+        ListView ls=(ListView)findViewById(R.id.listview);
         ls.setAdapter(myadpter);
         ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -60,7 +60,7 @@ public class ListContact extends AppCompatActivity {
                 String msg = "Lien de l aplication";
                 try {
                     SmsManager sms = SmsManager.getDefault();
-                    sms.sendTextMessage(num, null, msg, null, null);
+//                    sms.sendTextMessage(num, null, msg, null, null);
                 }catch (Exception e){
 ;
                 }
