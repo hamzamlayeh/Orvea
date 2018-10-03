@@ -20,7 +20,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".login" />
         <activity android:name=".InscriptionActivity" />
-        <activity android:name=".ListeMembresActivity"></activity>
+        <activity android:name=".ListeMembresActivity"/>
         <activity android:name=".ListContact" />
     </application>
 

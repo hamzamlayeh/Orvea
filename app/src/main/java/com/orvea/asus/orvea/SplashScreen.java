@@ -18,7 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        TextView logo = findViewById(R.id.logo);
+        ImageView logo = findViewById(R.id.logo);
 
 
         animFadeIn= AnimationUtils.loadAnimation(this, R.anim.translate);
