@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void connexion(View view) {
-        Intent intent= new Intent(this,ListContact.class);
+        Intent intent= new Intent(this,login.class);
         startActivity(intent);
     }
 

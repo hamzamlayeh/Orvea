@@ -3,7 +3,6 @@
     package="com.orvea.asus.orvea">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +20,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".login" />
         <activity android:name=".InscriptionActivity" />
-        <activity android:name=".ListContact"></activity>
+        <activity android:name=".ListeMembresActivity"></activity>
+        <activity android:name=".ListContact" />
     </application>
 
 </manifest>
