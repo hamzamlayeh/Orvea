@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="94dp"
         android:layout_marginTop="35dp"
-        android:text="contact@orvea.fr"
+        android:text="@string/contact_orvea_fr"
         android:textColor="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

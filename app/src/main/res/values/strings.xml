@@ -9,4 +9,15 @@
     <string name="chlose">Chlose</string>
     <string name="open">Open</string>
     <string name="ajouter_membre">Ajouter Membre</string>
+    <string name="title_activity_profils">ProfilsActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_listes_membres">ListesMembresActivity</string>
+    <string name="title_activity_ajout_rapport">AjoutRapportActivity</string>
+    <string name="orvea_family">Orvea Family</string>
+    <string name="contact_orvea_fr">contact@orvea.fr</string>
 </resources>

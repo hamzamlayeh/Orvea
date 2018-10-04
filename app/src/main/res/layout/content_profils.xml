@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.orvea.asus.orvea.Profile">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ProfilsActivity"
+    tools:showIn="@layout/app_bar_profils">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -82,7 +84,7 @@
                 android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="268dp"
-                android:drawableLeft="@drawable/ic_add_membre"
+                android:drawableLeft="@drawable/ic_users"
                 android:ems="10"
                 android:hint="   Nom"
                 android:inputType="textPersonName"
@@ -162,7 +164,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
-                android:id="@+id/role"
+                android:id="@+id/roles"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="28dp"
@@ -177,5 +179,4 @@
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
-
 </android.support.constraint.ConstraintLayout>

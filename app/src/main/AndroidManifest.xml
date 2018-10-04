@@ -21,9 +21,16 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".login" />
         <activity android:name=".InscriptionActivity" />
-        <activity android:name=".ListeMembresActivity" />
         <activity android:name=".ListContact" />
-        <activity android:name=".Profile"></activity>
+        <activity
+            android:name=".ProfilsActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ListesMembresActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AjoutRapportActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
