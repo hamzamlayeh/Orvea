@@ -35,19 +35,13 @@ public class ListContact extends AppCompatActivity {
     final static int MY_PERMISSIONS_REQUEST = 2;
     final  static ArrayList<ListItem> Items=new  ArrayList<ListItem> ();
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
         checkSmsPermission();
-
-
         recupContact();
         final MyCustomAdapter myadpter= new MyCustomAdapter(Items);
-
         ListView ls=(ListView)findViewById(R.id.listview);
         ls.setAdapter(myadpter);
         ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -67,7 +61,6 @@ public class ListContact extends AppCompatActivity {
                 Toast.makeText(ListContact.this, "SMS envoiye a "+txtname.getText().toString()+"\nNum"+ num, Toast.LENGTH_SHORT).show();
             }
         });
-
 
 
     }
@@ -102,9 +95,7 @@ public class ListContact extends AppCompatActivity {
         MyCustomAdapter(ArrayList<ListItem> Items ) {
             this.Items=Items;
             this.context=context;
-
         }
-
 
         @Override
         public int getCount() {
@@ -133,11 +124,7 @@ public class ListContact extends AppCompatActivity {
             txtname.setText(Items.get(i).Name);
             txtdes.setText(Items.get(i).Desc);
             return view1;
-
-
         }
-
-
 
     }
 
