@@ -30,7 +30,11 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".AjoutRapportActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CreeProjet"
+            android:label="@string/title_activity_cree_projet"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

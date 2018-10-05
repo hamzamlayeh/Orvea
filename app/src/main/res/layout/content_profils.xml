@@ -79,7 +79,7 @@
                         android:layout_marginEnd="256dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="153dp"
-                        android:text="les Rôles"
+                        android:text="les Rôles :"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
