@@ -5,12 +5,12 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,16 +29,17 @@ import java.util.Comparator;
 
 public class ListContact extends AppCompatActivity {
     final static int MY_PERMISSIONS_REQUEST = 2;
-    final  static ArrayList<ListItem> Items=new  ArrayList<ListItem> ();
+    ArrayList<ListItem> Items = new ArrayList<ListItem>();
+    ListView ls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
         checkSmsPermission();
+        ls = findViewById(R.id.listview);
         recupContact();
-        final MyCustomAdapter myadpter= new MyCustomAdapter(Items);
-        ListView ls=(ListView)findViewById(R.id.listview);
+        MyCustomAdapter myadpter = new MyCustomAdapter(Items, this);
         ls.setAdapter(myadpter);
         ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -48,11 +49,11 @@ public class ListContact extends AppCompatActivity {
 
                 String num = numTel.getText().toString();
                 String msg = "Lien de l aplication";
-                try {
-                    SmsManager sms = SmsManager.getDefault();
-//                    sms.sendTextMessage(num, null, msg, null, null);
+             try {
+                   SmsManager sms = SmsManager.getDefault();
+                    sms.sendTextMessage(num, null, msg, null, null);
                 }catch (Exception e){
-;
+                    Toast.makeText(ListContact.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 Toast.makeText(ListContact.this, "SMS envoiye a "+txtname.getText().toString()+"\nNum"+ num, Toast.LENGTH_SHORT).show();
             }
@@ -60,65 +61,67 @@ public class ListContact extends AppCompatActivity {
 
 
     }
-    public void recupContact(){
-        ContentResolver contentProvider =this.getContentResolver();
-        Cursor cursor=getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE,
-                ContactsContract.CommonDataKinds.Phone.NUMBER},null,null,null);
-        if (cursor==null){
-            Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
-        }else {
-            while (cursor.moveToNext()){
 
-                String name=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE));
-                String num=cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                Items.add(new ListItem(name,num));
+    public void recupContact() {
+        ContentResolver contentProvider = this.getContentResolver();
+        Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE,
+                        ContactsContract.CommonDataKinds.Phone.NUMBER}, null, null, null);
+        if (cursor == null) {
+            Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
+        } else {
+            while (cursor.moveToNext()) {
+
+                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE));
+                String num = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                Items.add(new ListItem(name, num));
 
                 Collections.sort(Items, new Comparator<ListItem>() {
                     @Override
                     public int compare(ListItem o1, ListItem o2) {
-                        return o1.Name.compareTo(o2.Name);
+                        return o1.getName().compareTo(o2.getName());
                     }
                 });
 
             }
+            cursor.close();
         }
     }
-    class MyCustomAdapter extends BaseAdapter
-    {
-        ArrayList<ListItem> Items=new ArrayList<ListItem>();
+
+    class MyCustomAdapter extends BaseAdapter {
+        ArrayList<ListItem> items ;
         Context context;
-        MyCustomAdapter(ArrayList<ListItem> Items ) {
-            this.Items=Items;
-            this.context=context;
+
+        MyCustomAdapter(ArrayList<ListItem> Items, Context context) {
+            this.items = Items;
+            this.context = context;
         }
 
         @Override
         public int getCount() {
-            return Items.size();
+            return items.size();
         }
 
         @Override
         public String getItem(int position) {
-            return Items.get(position).Name;
+            return items.get(position).getName();
 
         }
 
         @Override
         public long getItemId(int position) {
-            return  position;
+            return position;
         }
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            LayoutInflater linflater =getLayoutInflater();
-            View view1=linflater.inflate(R.layout.row, null);
+            LayoutInflater linflater = getLayoutInflater();
+            View view1 = linflater.inflate(R.layout.row, null);
 
-            TextView txtname =(TextView) view1.findViewById(R.id.nom);
-            TextView txtdes =(TextView) view1.findViewById(R.id.num);
-//            Button invi =(Button) view1.findViewById(R.id.invi);
-            txtname.setText(Items.get(i).Name);
-            txtdes.setText(Items.get(i).Desc);
+            TextView txtname = (TextView) view1.findViewById(R.id.nom);
+            TextView txtdes = (TextView) view1.findViewById(R.id.num);
+            txtname.setText(items.get(i).getName());
+            txtdes.setText(items.get(i).getDesc());
             return view1;
         }
 
@@ -138,6 +141,7 @@ public class ListContact extends AppCompatActivity {
         }
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {

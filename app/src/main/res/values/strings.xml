@@ -21,4 +21,5 @@
     <string name="orvea_family">Orvea Family</string>
     <string name="contact_orvea_fr">contact@orvea.fr</string>
     <string name="title_activity_cree_projet">CreeProjet</string>
+    <string name="title_activity_liste_projet">ListeProjetActivity</string>
 </resources>

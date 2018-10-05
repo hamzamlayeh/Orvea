@@ -5,8 +5,8 @@ package com.orvea.asus.orvea.DAO;
  */
 
 public class ListItem {
-    public String Name;
-    public String Desc;
+    private String Name;
+    private String Desc;
 
     public ListItem(String Name, String Desc){
         this.Name=Name;
@@ -14,4 +14,19 @@ public class ListItem {
 
     }
 
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public String getDesc() {
+        return Desc;
+    }
+
+    public void setDesc(String desc) {
+        Desc = desc;
+    }
 }

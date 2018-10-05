@@ -33,8 +33,10 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".CreeProjet"
-            android:label="@string/title_activity_cree_projet"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ListeProjetActivity"
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>
