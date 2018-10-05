@@ -26,6 +26,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="140dp"
+                    android:text="Connexion"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="92dp"
+                    android:text="Entrer Votre Email et Mot De Passe"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="65dp"
@@ -70,12 +93,13 @@
                         android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:drawableStart="@drawable/ic_users"
-                        android:hint="@string/email"
                         android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_users"
+                        android:ems="10"
+                        android:hint="@string/email"
                         android:inputType="textEmailAddress"
                         android:textColor="@color/gris"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -98,12 +122,13 @@
                         android:id="@+id/passe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_key"
                         android:ems="10"
                         android:hint="@string/mot_de_passe"
-                        android:drawableStart="@drawable/ic_key"
-                        android:drawablePadding="10dp"
                         android:inputType="textPassword"
                         android:textColor="@color/gris"
+                        android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"

@@ -12,7 +12,8 @@
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
             <android.support.v7.widget.CardView
                 android:layout_width="0dp"
@@ -50,6 +51,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="9dp"
                         android:text="Profile"
+                        android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/profile_image" />
@@ -90,10 +92,10 @@
                         android:layout_marginEnd="24dp"
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="268dp"
+                        android:drawablePadding="10dp"
                         android:drawableStart="@drawable/ic_users"
                         android:ems="10"
                         android:hint="Nom"
-                        android:drawablePadding="10dp"
                         android:inputType="textPersonName"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -109,11 +111,11 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
                         android:drawableLeft="@drawable/ic_email"
+                        android:drawablePadding="10dp"
                         android:ems="10"
                         android:hint="Email"
                         android:inputType="textPersonName"
                         android:textSize="14sp"
-                        android:drawablePadding="10dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
@@ -127,10 +129,9 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
                         android:drawableLeft="@drawable/ic_telephone"
-                        android:ems="10"
-
-                        android:hint="Portable"
                         android:drawablePadding="10dp"
+                        android:ems="10"
+                        android:hint="Portable"
                         android:inputType="textPersonName"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -146,9 +147,9 @@
                         android:layout_marginStart="24dp"
                         android:layout_marginTop="24dp"
                         android:drawableLeft="@drawable/ic_nom"
+                        android:drawablePadding="10dp"
                         android:ems="10"
                         android:hint="Prenom"
-                        android:drawablePadding="10dp"
                         android:inputType="textPersonName"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -156,11 +157,32 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/nom" />
 
+                    <EditText
+                        android:id="@+id/passe"
+                        android:layout_width="match_parent"
+                        android:layout_height="41dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginTop="16dp"
+                        android:drawablePadding="10dp"
+                        android:drawableStart="@drawable/ic_key"
+                        android:ems="10"
+                        android:hint="@string/mot_de_passe"
+                        android:inputType="textPassword"
+                        android:textColor="@color/gris"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toTopOf="@+id/Valider"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/email" />
+
                     <Button
                         android:id="@+id/Valider"
                         android:layout_width="0dp"
                         android:layout_height="43dp"
-                        android:layout_marginBottom="32dp"
+                        android:layout_marginBottom="16dp"
                         android:layout_marginEnd="80dp"
                         android:layout_marginStart="80dp"
                         android:layout_marginTop="24dp"
@@ -171,8 +193,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/email"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintTop_toBottomOf="@+id/passe" />
 
                     <TextView
                         android:id="@+id/roles"
