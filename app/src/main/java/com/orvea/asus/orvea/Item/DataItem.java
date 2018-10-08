@@ -1,4 +1,4 @@
-package com.orvea.asus.orvea.DAO;
+package com.orvea.asus.orvea.Item;
 
 public class DataItem {
 

@@ -1,9 +1,6 @@
 package com.orvea.asus.orvea;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,41 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-
-import com.orvea.asus.orvea.DAO.ItemDosserPhoto;
-import com.orvea.asus.orvea.DAO.ListeDossierPhotoAdapter;
-
-import java.util.ArrayList;
 
 public class DossierPhotoProjet extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-GridView gridView;
-    ArrayList<ItemDosserPhoto> list=new ArrayList<ItemDosserPhoto>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dossier_photo_projet);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
-        list.add(new ItemDosserPhoto("khaled",""));
 
-        gridView=findViewById(R.id.grid);
-        gridView.setAdapter(new ListeDossierPhotoAdapter(this,list));
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

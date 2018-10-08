@@ -1,8 +1,6 @@
-package com.orvea.asus.orvea.DAO;
+package com.orvea.asus.orvea.Adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,16 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orvea.asus.orvea.Item.DataItem;
 import com.orvea.asus.orvea.R;
 
 import java.util.ArrayList;
 
-public class ListeDossierPhotoAdapter extends BaseAdapter {
+public class ListesMembreAdapter extends BaseAdapter {
 
-    private Context context;
-    private ArrayList<ItemDosserPhoto> list;
+    Context context;
+    ArrayList<DataItem> list;
 
-    public ListeDossierPhotoAdapter(Context context, ArrayList<ItemDosserPhoto> list) {
+    public ListesMembreAdapter(Context context, ArrayList<DataItem> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,14 +41,15 @@ public class ListeDossierPhotoAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.dossier_projet_row, null);
+        View row = inflater.inflate(R.layout.row_membre, null);
 
-        TextView titre = (TextView) row.findViewById(R.id.NomProjet);
-        ImageView image = (ImageView) row.findViewById(R.id.image);
+        TextView nom = (TextView) row.findViewById(R.id.name);
+        TextView etat = (TextView) row.findViewById(R.id.etat);
+        ImageView img = (ImageView) row.findViewById(R.id.img_membre);
 
-        titre.setText(list.get(i).getNomProjet());
-//        image.setImageURI(Uri.parse(list.get(i).getImage()));
-
+        nom.setText(list.get(i).getNom_membre());
+        etat.setText(list.get(i).getEtat_membre());
+        img.setImageResource(list.get(i).getImg_membre());
 
         return row;
     }

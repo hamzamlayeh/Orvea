@@ -10,18 +10,60 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.GridView;
+
+import com.orvea.asus.orvea.Item.ItemDosserRapport;
+import com.orvea.asus.orvea.Adapter.ListeDossierRapportAdapter;
+
+import java.util.ArrayList;
 
 public class AjoutRapportActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    GridView gridView;
+    ArrayList<ItemDosserRapport> list=new ArrayList<ItemDosserRapport>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ajout_rapport);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
+        list.add(new ItemDosserRapport("khaled",""));
 
+        gridView=findViewById(R.id.grid);
+        gridView.setAdapter(new ListeDossierRapportAdapter(this,list));
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

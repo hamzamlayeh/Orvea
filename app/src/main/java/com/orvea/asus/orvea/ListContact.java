@@ -21,7 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.orvea.asus.orvea.DAO.ListItem;
+import com.orvea.asus.orvea.Item.ListItem;
 
 import java.util.ArrayList;
 import java.util.Collections;

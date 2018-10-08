@@ -1,4 +1,4 @@
-package com.orvea.asus.orvea.DAO;
+package com.orvea.asus.orvea.Item;
 
 /**
  * Created by user on 02/10/2018.

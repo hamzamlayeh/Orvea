@@ -1,23 +1,22 @@
-package com.orvea.asus.orvea.DAO;
+package com.orvea.asus.orvea.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.orvea.asus.orvea.R;
 
 import java.util.ArrayList;
 
-public class ListesMembreAdapter extends BaseAdapter {
+public class ListeProjetAdapter extends BaseAdapter {
 
-    Context context;
-    ArrayList<DataItem> list;
+    private Context context;
+    private ArrayList<String> list;
 
-    public ListesMembreAdapter(Context context, ArrayList<DataItem> list) {
+    public ListeProjetAdapter(Context context, ArrayList<String> list) {
         this.context = context;
         this.list = list;
     }
@@ -40,15 +39,12 @@ public class ListesMembreAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = inflater.inflate(R.layout.row_membre, null);
+        View row = inflater.inflate(R.layout.row_projet, null);
 
-        TextView nom = (TextView) row.findViewById(R.id.name);
-        TextView etat = (TextView) row.findViewById(R.id.etat);
-        ImageView img = (ImageView) row.findViewById(R.id.img_membre);
+        TextView titre = (TextView) row.findViewById(R.id.titre);
 
-        nom.setText(list.get(i).getNom_membre());
-        etat.setText(list.get(i).getEtat_membre());
-        img.setImageResource(list.get(i).getImg_membre());
+        titre.setText(list.get(i));
+
 
         return row;
     }

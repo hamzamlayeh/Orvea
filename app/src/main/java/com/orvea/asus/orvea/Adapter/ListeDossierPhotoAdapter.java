@@ -1,22 +1,25 @@
-package com.orvea.asus.orvea.DAO;
+package com.orvea.asus.orvea.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orvea.asus.orvea.Item.ItemDosserRapport;
 import com.orvea.asus.orvea.R;
 
 import java.util.ArrayList;
 
-public class ListeProjetAdapter extends BaseAdapter {
+public class ListeDossierPhotoAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<String> list;
+    private ArrayList<ItemDosserRapport> list;
 
-    public ListeProjetAdapter(Context context, ArrayList<String> list) {
+    public ListeDossierPhotoAdapter(Context context, ArrayList<ItemDosserRapport> list) {
         this.context = context;
         this.list = list;
     }
@@ -39,11 +42,13 @@ public class ListeProjetAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View row = inflater.inflate(R.layout.row_projet, null);
+        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.dossier_projet_row, null);
 
-        TextView titre = (TextView) row.findViewById(R.id.titre);
+        TextView titre = (TextView) row.findViewById(R.id.NomProjet);
+        ImageView image = (ImageView) row.findViewById(R.id.image);
 
-        titre.setText(list.get(i));
+        titre.setText(list.get(i).getNomProjet());
+//        image.setImageURI(Uri.parse(list.get(i).getImage()));
 
 
         return row;
