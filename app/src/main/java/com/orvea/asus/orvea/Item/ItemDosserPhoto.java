@@ -5,29 +5,29 @@ package com.orvea.asus.orvea.Item;
  */
 
 public class ItemDosserPhoto {
-    private String NomProjet;
-    private String Image;
+    private String NomUser;
+    private String Photo;
 
     public ItemDosserPhoto(String nomProjet, String image) {
-        NomProjet = nomProjet;
-        Image = image;
+        NomUser = nomProjet;
+        Photo = image;
     }
 
-    public String getImage() {
-        return Image;
+    public String getPhoto() {
+        return Photo;
     }
 
-    public void setImage(String image) {
-        Image = image;
+    public void setPhoto(String image) {
+        Photo = image;
     }
 
 
-    public String getNomProjet() {
-        return NomProjet;
+    public String getNomUser() {
+        return NomUser;
     }
 
-    public void setNomProjet(String nomProjet) {
-        NomProjet = nomProjet;
+    public void setNomUser(String nomProjet) {
+        NomUser = nomProjet;
     }
 
 }

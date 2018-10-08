@@ -9,17 +9,56 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.GridView;
+
+import com.orvea.asus.orvea.Adapter.ListeDossierPhotoAdapter;
+import com.orvea.asus.orvea.Adapter.ListeDossierRapportAdapter;
+import com.orvea.asus.orvea.Item.ItemDosserPhoto;
+import com.orvea.asus.orvea.Item.ItemDosserRapport;
+
+
+import java.util.ArrayList;
 
 public class DossierPhotoProjet extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    GridView gridView;
+    ArrayList<ItemDosserPhoto> list=new ArrayList<ItemDosserPhoto>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dossier_photo_projet);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
+        list.add(new ItemDosserPhoto("khaled hizawi",""));
 
+        gridView=findViewById(R.id.grid);
+        gridView.setAdapter(new ListeDossierPhotoAdapter(this,list));
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

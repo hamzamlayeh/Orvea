@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.orvea.asus.orvea.Item.ItemDosserPhoto;
 import com.orvea.asus.orvea.Item.ItemDosserRapport;
 import com.orvea.asus.orvea.R;
 
@@ -17,9 +18,9 @@ import java.util.ArrayList;
 public class ListeDossierPhotoAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<ItemDosserRapport> list;
+    private ArrayList<ItemDosserPhoto> list;
 
-    public ListeDossierPhotoAdapter(Context context, ArrayList<ItemDosserRapport> list) {
+    public ListeDossierPhotoAdapter(Context context, ArrayList<ItemDosserPhoto> list) {
         this.context = context;
         this.list = list;
     }
@@ -42,12 +43,12 @@ public class ListeDossierPhotoAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.dossier_projet_row, null);
+        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.row_dossier_photo, null);
 
         TextView titre = (TextView) row.findViewById(R.id.NomProjet);
         ImageView image = (ImageView) row.findViewById(R.id.image);
 
-        titre.setText(list.get(i).getNomProjet());
+        titre.setText(list.get(i).getNomUser());
 //        image.setImageURI(Uri.parse(list.get(i).getImage()));
 
 
