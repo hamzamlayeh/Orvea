@@ -24,7 +24,6 @@ public class ListesMembresActivity extends AppCompatActivity
 
     ListView listView;
     ArrayList<DataItem> listM = new ArrayList<DataItem>();
-    ;
     ListesMembreAdapter myAdapter;
     DataItem dataItem;
 

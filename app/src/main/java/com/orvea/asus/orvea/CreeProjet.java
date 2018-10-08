@@ -70,4 +70,9 @@ public class CreeProjet extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void Valider(View view) {
+        startActivity(new Intent(this, ListeProjetActivity.class));
+
+    }
 }

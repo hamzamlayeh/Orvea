@@ -13,17 +13,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.orvea.asus.orvea.DAO.DataItem;
+import com.orvea.asus.orvea.DAO.ListeProjetAdapter;
+import com.orvea.asus.orvea.DAO.ListesMembreAdapter;
+
+import java.util.ArrayList;
 
 public class ListeProjetActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    ListView listView;
+    ArrayList<String> List=new ArrayList<>();
+    ListeProjetAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_projet);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+         listView = findViewById(R.id.list_projet);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -35,6 +47,13 @@ public class ListeProjetActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        for (int i = 0; i < 10; i++) {
+
+           List.add("Titre"+i);
+        }
+        myAdapter = new ListeProjetAdapter(this, List);
+        listView.setAdapter(myAdapter);
     }
 
     @Override
