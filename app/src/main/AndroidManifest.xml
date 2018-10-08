@@ -36,7 +36,11 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ListeProjetActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".DossierPhotoProjet"
+            android:label="@string/title_activity_dossier_photo_projet"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
