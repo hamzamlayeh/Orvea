@@ -1,8 +1,13 @@
 package com.orvea.asus.orvea;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,14 +17,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import com.orvea.asus.orvea.Item.DataItem;
 import com.orvea.asus.orvea.Adapter.ListesMembreAdapter;
+import com.orvea.asus.orvea.Item.DataItem;
 
 import java.util.ArrayList;
 
 public class ListesMembresActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static final int REQUEST_PERMISSION = 200;
     ListView listView;
     ArrayList<DataItem> listM = new ArrayList<DataItem>();
     ListesMembreAdapter myAdapter;
@@ -30,6 +36,7 @@ public class ListesMembresActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listes_membres);
         listView = findViewById(R.id.list);
+        checkpermission();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,6 +60,26 @@ public class ListesMembresActivity extends AppCompatActivity
         listView.setAdapter(myAdapter);
     }
 
+    public void checkpermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_PERMISSION);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_PERMISSION && grantResults.length > 0) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        REQUEST_PERMISSION);
+            }
+        }
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -64,28 +91,6 @@ public class ListesMembresActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.listes_membres, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -101,7 +106,7 @@ public class ListesMembresActivity extends AppCompatActivity
             case R.id.nav_addr:
                 startActivity(new Intent(this, AjoutRapportActivity.class));
                 break;
-                case R.id.nav_dec:
+            case R.id.nav_dec:
 //                startActivity(new Intent(this, AjoutRapportActivity.class));
                 break;
         }

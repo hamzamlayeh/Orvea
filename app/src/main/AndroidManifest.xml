@@ -3,6 +3,10 @@
     package="com.orvea.asus.orvea">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -39,8 +43,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".DossierPhotoProjet"
-            android:label="@string/title_activity_dossier_photo_projet"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

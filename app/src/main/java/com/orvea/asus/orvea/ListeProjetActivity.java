@@ -9,6 +9,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.orvea.asus.orvea.Adapter.ListeProjetAdapter;
@@ -42,12 +44,18 @@ public class ListeProjetActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i <= 10; i++) {
 
-           List.add("Titre"+i);
+           List.add("Projet "+i);
         }
         myAdapter = new ListeProjetAdapter(this, List);
         listView.setAdapter(myAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getApplicationContext(),DossierPhotoProjet.class));
+            }
+        });
     }
 
     @Override

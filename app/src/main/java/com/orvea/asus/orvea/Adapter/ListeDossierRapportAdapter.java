@@ -42,7 +42,7 @@ public class ListeDossierRapportAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.dossier_projet_row, null);
+        @SuppressLint("ViewHolder") View row = inflater.inflate(R.layout.row_dossier_projet, null);
 
         TextView titre = (TextView) row.findViewById(R.id.NomProjet);
         ImageView image = (ImageView) row.findViewById(R.id.image);
