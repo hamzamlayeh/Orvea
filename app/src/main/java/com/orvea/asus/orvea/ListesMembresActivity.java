@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.orvea.asus.orvea.Adapter.ListesMembreAdapter;
@@ -58,6 +59,12 @@ public class ListesMembresActivity extends AppCompatActivity
         }
         myAdapter = new ListesMembreAdapter(this, listM);
         listView.setAdapter(myAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                startActivity(new Intent(getApplicationContext(),DescriptionRapportActivity.class));
+            }
+        });
     }
 
     public void checkpermission() {

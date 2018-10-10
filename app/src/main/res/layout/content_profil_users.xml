@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ProfilsActivity"
-    tools:showIn="@layout/app_bar_profils">
+    tools:context=".ProfilUsersActivity"
+    tools:showIn="@layout/app_bar_profil_users">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -61,7 +61,6 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="16dp"
-                    android:onClick="Edite_Photo"
                     android:src="@drawable/ic_user"
                     app:civ_border_color="@color/colorAccent"
                     app:civ_border_width="2dp"
@@ -84,7 +83,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
+                <TextView
                     android:id="@+id/nom"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -93,70 +92,72 @@
                     android:layout_marginTop="268dp"
                     android:drawablePadding="10dp"
                     android:drawableStart="@drawable/ic_users"
-                    android:ems="10"
-                    android:hint="Nom"
                     android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:text="Nom"
+                    android:textColor="@color/gris"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
+                <TextView
                     android:id="@+id/email"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:drawableLeft="@drawable/ic_email"
                     android:drawablePadding="10dp"
+                    android:drawableStart="@drawable/ic_email"
                     android:ems="10"
-                    android:hint="Email"
-                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:text="Email"
+                    android:textColor="@color/gris"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tel" />
 
-                <EditText
+                <TextView
                     android:id="@+id/tel"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:drawableLeft="@drawable/ic_telephone"
                     android:drawablePadding="10dp"
-                    android:ems="10"
-                    android:hint="Portable"
-                    android:inputType="textPersonName"
+                    android:drawableStart="@drawable/ic_telephone"
+                    android:padding="10dp"
+                    android:text="Portable"
+                    android:textColor="@color/gris"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/prenom" />
 
-                <EditText
+                <TextView
                     android:id="@+id/prenom"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="24dp"
-                    android:drawableLeft="@drawable/ic_nom"
                     android:drawablePadding="10dp"
-                    android:ems="10"
-                    android:hint="Prenom"
-                    android:inputType="textPersonName"
+                    android:drawableStart="@drawable/ic_nom"
+                    android:padding="10dp"
+                    android:text="Prenom"
+                    android:textColor="@color/gris"
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/nom" />
 
-                <EditText
+                <TextView
                     android:id="@+id/passe"
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
@@ -166,9 +167,8 @@
                     android:layout_marginTop="16dp"
                     android:drawablePadding="10dp"
                     android:drawableStart="@drawable/ic_key"
-                    android:ems="10"
-                    android:hint="@string/mot_de_passe"
-                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:text="@string/mot_de_passe"
                     android:textColor="@color/gris"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toTopOf="@+id/Valider"
@@ -212,4 +212,3 @@
         </android.support.v7.widget.CardView>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
-
