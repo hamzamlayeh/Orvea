@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.GridView;
 
 import com.orvea.asus.orvea.Adapter.ListeDossierPhotoAdapter;
@@ -103,5 +104,9 @@ public class DossierPhotoProjet extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void CreerRapport(View view) {
+        startActivity(new Intent(this, CreeRapport.class));
     }
 }

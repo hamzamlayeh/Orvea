@@ -47,9 +47,16 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".CreeRapport"
-            android:theme="@style/AppTheme"/>
-        <activity android:name=".DescriptionRapportActivity"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".DescriptionRapportActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ProfilUsersActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".DroitAccesActivity"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

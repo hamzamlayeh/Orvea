@@ -1,6 +1,7 @@
 package com.orvea.asus.orvea;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,7 +40,7 @@ public class DescriptionRapportActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -80,20 +81,19 @@ public class DescriptionRapportActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (item.getItemId()) {
+            case R.id.nav_profil:
+                startActivity(new Intent(this, ProfilsActivity.class));
+                break;
+            case R.id.nav_list:
+                startActivity(new Intent(this, ListesMembresActivity.class));
+                break;
+            case R.id.nav_addr:
+                startActivity(new Intent(this, AjoutRapportActivity.class));
+                break;
+            case R.id.nav_dec:
+//                startActivity(new Intent(this, AjoutRapportActivity.class));
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -101,4 +101,7 @@ public class DescriptionRapportActivity extends AppCompatActivity
         return true;
     }
 
+    public void ToGalery(View view) {
+        startActivity(new Intent(this, CreeRapport.class));
+    }
 }
