@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.telephony.SmsManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.orvea.asus.orvea.Adapter.ListeContactAdapter;
 import com.orvea.asus.orvea.Item.ListItem;
 
 import java.util.ArrayList;
@@ -30,34 +33,41 @@ import java.util.Comparator;
 public class ListContact extends AppCompatActivity {
     final static int MY_PERMISSIONS_REQUEST = 2;
     ArrayList<ListItem> Items = new ArrayList<ListItem>();
-    ListView ls;
+    RecyclerView ls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
         checkSmsPermission();
-        ls = findViewById(R.id.listview);
-        recupContact();
-        MyCustomAdapter myadpter = new MyCustomAdapter(Items, this);
-        ls.setAdapter(myadpter);
-        ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView txtname =(TextView) view.findViewById(R.id.nom);
-                TextView numTel =(TextView) view.findViewById(R.id.num);
 
-                String num = numTel.getText().toString();
-                String msg = "Lien de l aplication";
-             try {
-                   SmsManager sms = SmsManager.getDefault();
-                    sms.sendTextMessage(num, null, msg, null, null);
-                }catch (Exception e){
-                    Toast.makeText(ListContact.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-                Toast.makeText(ListContact.this, "SMS envoiye a "+txtname.getText().toString()+"\nNum"+ num, Toast.LENGTH_SHORT).show();
-            }
-        });
+        ls = findViewById(R.id.RecyclerView);
+        ls.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
+                LinearLayoutManager.VERTICAL, false));
+
+        ListeContactAdapter myadpter = new ListeContactAdapter( this,Items);
+        ls.setAdapter(myadpter);
+
+        recupContact();
+
+
+//        ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                TextView txtname =(TextView) view.findViewById(R.id.nom);
+//                TextView numTel =(TextView) view.findViewById(R.id.num);
+//
+//                String num = numTel.getText().toString();
+//                String msg = "Lien de l aplication";
+//             try {
+//                   SmsManager sms = SmsManager.getDefault();
+//                    sms.sendTextMessage(num, null, msg, null, null);
+//                }catch (Exception e){
+//                    Toast.makeText(ListContact.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//                Toast.makeText(ListContact.this, "SMS envoiye a "+txtname.getText().toString()+"\nNum"+ num, Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
     }
@@ -88,44 +98,7 @@ public class ListContact extends AppCompatActivity {
         }
     }
 
-    class MyCustomAdapter extends BaseAdapter {
-        ArrayList<ListItem> items ;
-        Context context;
 
-        MyCustomAdapter(ArrayList<ListItem> Items, Context context) {
-            this.items = Items;
-            this.context = context;
-        }
-
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-        @Override
-        public String getItem(int position) {
-            return items.get(position).getName();
-
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            LayoutInflater linflater = getLayoutInflater();
-            View view1 = linflater.inflate(R.layout.row, null);
-
-            TextView txtname = (TextView) view1.findViewById(R.id.nom);
-            TextView txtdes = (TextView) view1.findViewById(R.id.num);
-            txtname.setText(items.get(i).getName());
-            txtdes.setText(items.get(i).getDesc());
-            return view1;
-        }
-
-    }
 
     public void checkSmsPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) !=

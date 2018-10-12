@@ -57,6 +57,10 @@
         <activity
             android:name=".DroitAccesActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".EnvoyerRapport"
+            android:label="@string/title_activity_envoyer_rapport"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
