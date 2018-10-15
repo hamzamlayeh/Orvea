@@ -2,7 +2,6 @@ package com.orvea.asus.orvea;
 
 import android.Manifest;
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -14,17 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.SmsManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.orvea.asus.orvea.Adapter.ListeContactAdapter;
-import com.orvea.asus.orvea.Item.ListItem;
+import com.orvea.asus.orvea.Helper.RecyclerViewClickListener;
+import com.orvea.asus.orvea.Helper.RecyclerViewTouchListener;
+import com.orvea.asus.orvea.Model.ListItem;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,26 +44,28 @@ public class ListContact extends AppCompatActivity {
         ls.setAdapter(myadpter);
 
         recupContact();
+        ls.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), ls, new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
 
-
-//        ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                TextView txtname =(TextView) view.findViewById(R.id.nom);
-//                TextView numTel =(TextView) view.findViewById(R.id.num);
-//
-//                String num = numTel.getText().toString();
-//                String msg = "Lien de l aplication";
-//             try {
-//                   SmsManager sms = SmsManager.getDefault();
+                String nom =Items.get(position).getName();
+                String num =Items.get(position).getDesc();
+                String msg = "Lien de l aplication";
+             try {
+                   SmsManager sms = SmsManager.getDefault();
 //                    sms.sendTextMessage(num, null, msg, null, null);
-//                }catch (Exception e){
-//                    Toast.makeText(ListContact.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-//                }
-//                Toast.makeText(ListContact.this, "SMS envoiye a "+txtname.getText().toString()+"\nNum"+ num, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+                }catch (Exception e){
+                    Toast.makeText(ListContact.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                Toast.makeText(ListContact.this, "Invitation  envoiye par SMS a :"+nom+" \nNuméro :"+ num, Toast.LENGTH_SHORT).show();
+            }
 
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
 
     }
 

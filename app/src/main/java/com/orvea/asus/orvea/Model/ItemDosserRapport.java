@@ -1,4 +1,4 @@
-package com.orvea.asus.orvea.Item;
+package com.orvea.asus.orvea.Model;
 
 /**
  * Created by user on 08/10/2018.

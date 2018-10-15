@@ -1,14 +1,13 @@
 package com.orvea.asus.orvea.Adapter;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.orvea.asus.orvea.Item.ListItem;
+import com.orvea.asus.orvea.Model.ListItem;
 import com.orvea.asus.orvea.R;
 import java.util.ArrayList;
 import java.util.List;

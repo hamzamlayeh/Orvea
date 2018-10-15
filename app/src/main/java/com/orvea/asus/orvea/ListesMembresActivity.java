@@ -19,7 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.orvea.asus.orvea.Adapter.ListesMembreAdapter;
-import com.orvea.asus.orvea.Item.DataItem;
+import com.orvea.asus.orvea.Model.DataItem;
 
 import java.util.ArrayList;
 

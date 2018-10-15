@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.GridView;
 
 import com.orvea.asus.orvea.Adapter.ListeDossierPhotoAdapter;
-import com.orvea.asus.orvea.Item.ItemDosserPhoto;
+import com.orvea.asus.orvea.Model.ItemDosserPhoto;
 
 import java.util.ArrayList;
 

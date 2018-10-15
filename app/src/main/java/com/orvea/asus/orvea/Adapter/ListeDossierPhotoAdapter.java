@@ -9,8 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.orvea.asus.orvea.Item.ItemDosserPhoto;
-import com.orvea.asus.orvea.Item.ItemDosserRapport;
+import com.orvea.asus.orvea.Model.ItemDosserPhoto;
 import com.orvea.asus.orvea.R;
 
 import java.util.ArrayList;

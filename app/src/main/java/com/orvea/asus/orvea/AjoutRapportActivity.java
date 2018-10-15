@@ -12,7 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.GridView;
 
-import com.orvea.asus.orvea.Item.ItemDosserRapport;
+import com.orvea.asus.orvea.Model.ItemDosserRapport;
 import com.orvea.asus.orvea.Adapter.ListeDossierRapportAdapter;
 
 import java.util.ArrayList;

@@ -15,6 +15,11 @@ public class login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        init();
+        startActivity(new Intent(this, ListesMembresActivity.class));
+    }
+
+    private void init(){
         Email = findViewById(R.id.email);
         Password = findViewById(R.id.passe);
     }
@@ -24,7 +29,7 @@ public class login extends AppCompatActivity {
         password = Password.getText().toString().trim();
 
         if (valider()) {
-            startActivity(new Intent(this, ListesMembresActivity.class));
+
         }
     }
 
