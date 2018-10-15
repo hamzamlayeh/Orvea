@@ -104,4 +104,8 @@ public class DescriptionRapportActivity extends AppCompatActivity
     public void ToGalery(View view) {
         startActivity(new Intent(this, CreeRapport.class));
     }
+
+    public void valider(View view) {
+        startActivity(new Intent(this, EnvoyerRapport.class));
+    }
 }
