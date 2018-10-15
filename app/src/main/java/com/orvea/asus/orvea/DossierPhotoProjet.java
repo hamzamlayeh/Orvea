@@ -90,14 +90,26 @@ public class DossierPhotoProjet extends AppCompatActivity
             case R.id.nav_profil:
                 startActivity(new Intent(this, ProfilsActivity.class));
                 break;
-            case R.id.nav_list:
-                startActivity(new Intent(this, ListesMembresActivity.class));
+            case R.id.nav_listM:
+               startActivity(new Intent(this, ListesMembresActivity.class));
                 break;
-            case R.id.nav_addr:
+            case R.id.nav_addm:
+                startActivity(new Intent(this, ListContact.class));
+                break;
+            case R.id.nav_listR:
                 startActivity(new Intent(this, AjoutRapportActivity.class));
                 break;
+            case R.id.nav_addr:
+                startActivity(new Intent(this, CreeRapport.class));
+                break;
+            case R.id.nav_listP:
+                startActivity(new Intent(this, ListeProjetActivity.class));
+                break;
+            case R.id.nav_addp:
+                startActivity(new Intent(this, CreeProjet.class));
+                break;
             case R.id.nav_dec:
-//                startActivity(new Intent(this, AjoutRapportActivity.class));
+                startActivity(new Intent(this, AjoutRapportActivity.class));
                 break;
         }
 
@@ -108,5 +120,9 @@ public class DossierPhotoProjet extends AppCompatActivity
 
     public void CreerRapport(View view) {
         startActivity(new Intent(this, CreeRapport.class));
+    }
+
+    public void Liste_rapport(View view) {
+        startActivity(new Intent(this, AjoutRapportActivity.class));
     }
 }

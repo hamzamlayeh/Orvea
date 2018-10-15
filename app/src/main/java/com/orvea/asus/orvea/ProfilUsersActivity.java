@@ -46,28 +46,6 @@ public class ProfilUsersActivity extends AppCompatActivity
         }
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.profil_users, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -76,17 +54,28 @@ public class ProfilUsersActivity extends AppCompatActivity
             case R.id.nav_profil:
                 startActivity(new Intent(this, ProfilsActivity.class));
                 break;
-            case R.id.nav_list:
+            case R.id.nav_listM:
                 startActivity(new Intent(this, ListesMembresActivity.class));
                 break;
-            case R.id.nav_addr:
+            case R.id.nav_addm:
+                startActivity(new Intent(this, ListContact.class));
+                break;
+            case R.id.nav_listR:
                 startActivity(new Intent(this, AjoutRapportActivity.class));
+                break;
+            case R.id.nav_addr:
+                startActivity(new Intent(this, CreeRapport.class));
+                break;
+            case R.id.nav_listP:
+                startActivity(new Intent(this, ListeProjetActivity.class));
+                break;
+            case R.id.nav_addp:
+                startActivity(new Intent(this, CreeProjet.class));
                 break;
             case R.id.nav_dec:
 //                startActivity(new Intent(this, AjoutRapportActivity.class));
                 break;
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

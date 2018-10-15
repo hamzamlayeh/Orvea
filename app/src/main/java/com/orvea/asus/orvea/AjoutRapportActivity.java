@@ -99,7 +99,7 @@ public class AjoutRapportActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_add) {
-           startActivity(new Intent(this, CreeProjet.class));
+           startActivity(new Intent(this, CreeRapport.class));
             return true;
         }
 
@@ -114,11 +114,23 @@ public class AjoutRapportActivity extends AppCompatActivity
             case R.id.nav_profil:
                 startActivity(new Intent(this, ProfilsActivity.class));
                 break;
-            case R.id.nav_list:
+            case R.id.nav_listM:
                 startActivity(new Intent(this, ListesMembresActivity.class));
                 break;
-            case R.id.nav_addr:
+            case R.id.nav_addm:
+                startActivity(new Intent(this, ListContact.class));
+                break;
+            case R.id.nav_listR:
 //                startActivity(new Intent(this, AjoutRapportActivity.class));
+                break;
+            case R.id.nav_addr:
+                startActivity(new Intent(this, CreeRapport.class));
+                break;
+            case R.id.nav_listP:
+                startActivity(new Intent(this, ListeProjetActivity.class));
+                break;
+            case R.id.nav_addp:
+                startActivity(new Intent(this, CreeProjet.class));
                 break;
             case R.id.nav_dec:
 //                startActivity(new Intent(this, AjoutRapportActivity.class));

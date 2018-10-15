@@ -3,36 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single" >
+    <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_profil"
-            android:icon="@drawable/ic_profil"
-            android:title="Profil" />
-        <item
-            android:id="@+id/nav_list"
+            android:id="@+id/nav_listM"
             android:icon="@drawable/ic_mobre"
             android:title="Liste Membre" />
+        <item
+            android:id="@+id/nav_addm"
+            android:icon="@drawable/ic_ajout_mobre"
+            android:title="Ajouter Membre" />
+        <item
+            android:id="@+id/nav_listR"
+            android:icon="@drawable/ic_liste_rapport"
+            android:title="Liste Rapport" />
         <item
             android:id="@+id/nav_addr"
             android:icon="@drawable/ic_ajoutraport"
             android:title="Ajouter Rapport" />
         <item
-            android:id="@+id/nav_dec"
-            android:icon="@drawable/ic_logout"
-            android:title="Deconnexion" />
-    </group>
+            android:id="@+id/nav_listP"
+            android:icon="@drawable/ic_liste_projet"
+            android:title="Liste Projet" />
+        <item
+            android:id="@+id/nav_addp"
+            android:icon="@drawable/ic_ajout_projet"
+            android:title="Ajouter Projet" />
 
-    <item android:title="Communicate">
+    </group>
+    <item android:title="Parametres">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/nav_profil"
+                android:icon="@drawable/ic_profil"
+                android:title="Profil" />
             <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/nav_dec"
+                android:icon="@drawable/ic_logout"
+                android:title="Deconnexion" />
         </menu>
     </item>
-
 </menu>

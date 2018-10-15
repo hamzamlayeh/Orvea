@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -67,7 +68,24 @@ public class ListeProjetActivity extends AppCompatActivity
             super.onBackPressed();
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.ajout_rapport, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_add) {
+            startActivity(new Intent(this, CreeProjet.class));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -76,11 +94,23 @@ public class ListeProjetActivity extends AppCompatActivity
             case R.id.nav_profil:
                 startActivity(new Intent(this, ProfilsActivity.class));
                 break;
-            case R.id.nav_list:
-                startActivity(new Intent(this, ListesMembresActivity.class));
+            case R.id.nav_listM:
+               startActivity(new Intent(this, ListesMembresActivity.class));
+                break;
+            case R.id.nav_addm:
+                startActivity(new Intent(this, ListContact.class));
+                break;
+            case R.id.nav_listR:
+                startActivity(new Intent(this, AjoutRapportActivity.class));
                 break;
             case R.id.nav_addr:
-                startActivity(new Intent(this, AjoutRapportActivity.class));
+                startActivity(new Intent(this, CreeRapport.class));
+                break;
+            case R.id.nav_listP:
+//                startActivity(new Intent(this, ListeProjetActivity.class));
+                break;
+            case R.id.nav_addp:
+                startActivity(new Intent(this, CreeProjet.class));
                 break;
             case R.id.nav_dec:
 //                startActivity(new Intent(this, AjoutRapportActivity.class));

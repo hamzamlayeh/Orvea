@@ -70,6 +70,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="12dp"
+            android:onClick="Liste_rapport"
             app:srcCompat="@drawable/ic_menu1"
             tools:ignore="VectorDrawableCompat" />
     </LinearLayout>
