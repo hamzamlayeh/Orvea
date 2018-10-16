@@ -22,8 +22,6 @@ public class SplashScreen extends AppCompatActivity {
 
         logo.setAnimation(animFadeIn);
         new Handler().postDelayed(new Runnable() {
-
-
             /*
              * Showing splash screen with a timer. This will be useful when you
              * want to show case your app logo / company

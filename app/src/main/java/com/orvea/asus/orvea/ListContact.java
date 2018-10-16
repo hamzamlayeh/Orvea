@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -45,7 +46,10 @@ public class ListContact extends AppCompatActivity {
         ListeContactAdapter myadpter = new ListeContactAdapter( this,Items);
         ls.setAdapter(myadpter);
 
-        recupContact();
+                recupContact();
+
+
+
         ls.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), ls, new RecyclerViewClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -137,6 +141,7 @@ public class ListContact extends AppCompatActivity {
 
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             Intent ite = new Intent(this, ListesMembresActivity.class);
+            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
             startActivity(ite);
         }
         return false;
