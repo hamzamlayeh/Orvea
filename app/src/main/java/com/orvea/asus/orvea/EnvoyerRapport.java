@@ -13,10 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 public class EnvoyerRapport extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    ToggleButton m1,m2,m3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,11 @@ public class EnvoyerRapport extends AppCompatActivity
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+         m1 =  findViewById(R.id.model1);
+         m2 = (ToggleButton) findViewById(R.id.model2);
+         m3 = (ToggleButton) findViewById(R.id.model3);
+
     }
 
     @Override
@@ -79,5 +87,23 @@ public class EnvoyerRapport extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void m1(View view) {
+        m1.setBackgroundResource(R.drawable.modele_ma);
+        m2.setBackgroundResource(R.drawable.modele_c);
+        m3.setBackgroundResource(R.drawable.modele_b);
+    }
+
+    public void m2(View view) {
+        m1.setBackgroundResource(R.drawable.modele_a);
+        m2.setBackgroundResource(R.drawable.modele_mc);
+        m3.setBackgroundResource(R.drawable.modele_b);
+    }
+
+    public void m3(View view) {
+        m1.setBackgroundResource(R.drawable.modele_a);
+        m2.setBackgroundResource(R.drawable.modele_c);
+        m3.setBackgroundResource(R.drawable.modele_mb);
     }
 }
