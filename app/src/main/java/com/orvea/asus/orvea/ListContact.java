@@ -5,10 +5,12 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -37,18 +39,16 @@ public class ListContact extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_contact);
-        checkSmsPermission();
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkSMSPermission();
+        }
+        recupContact();
         ls = findViewById(R.id.RecyclerView);
         ls.setLayoutManager(new LinearLayoutManager(getApplicationContext(),
                 LinearLayoutManager.VERTICAL, false));
 
         ListeContactAdapter myadpter = new ListeContactAdapter( this,Items);
         ls.setAdapter(myadpter);
-
-                recupContact();
-
-
 
         ls.addOnItemTouchListener(new RecyclerViewTouchListener(getApplicationContext(), ls, new RecyclerViewClickListener() {
             @Override
@@ -77,73 +77,55 @@ public class ListContact extends AppCompatActivity {
 
     public void recupContact() {
         ContentResolver contentProvider = this.getContentResolver();
-        Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE,
-                        ContactsContract.CommonDataKinds.Phone.NUMBER}, null, null, null);
-        if (cursor == null) {
-            Toast.makeText(this, "Erreur", Toast.LENGTH_SHORT).show();
-        } else {
-            while (cursor.moveToNext()) {
 
-                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE));
-                String num = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                Items.add(new ListItem(name, num));
+                Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                        new String[]{ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE,
+                                ContactsContract.CommonDataKinds.Phone.NUMBER}, null, null, null);
+                if (cursor == null) {
+                    Toast.makeText(getApplicationContext(), "Erreur", Toast.LENGTH_SHORT).show();
+                } else {
+                    while (cursor.moveToNext()) {
 
-                Collections.sort(Items, new Comparator<ListItem>() {
-                    @Override
-                    public int compare(ListItem o1, ListItem o2) {
-                        return o1.getName().compareTo(o2.getName());
+                        String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME_ALTERNATIVE));
+                        String num = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                        Items.add(new ListItem(name, num));
+                        Collections.sort(Items, new Comparator<ListItem>() {
+                            @Override
+                            public int compare(ListItem o1, ListItem o2) {
+                                return o1.getName().compareTo(o2.getName());
+                            }
+                        });
                     }
-                });
-
-            }
-            cursor.close();
+                    cursor.close();
+                }
         }
-    }
-
-
-
-    public void checkSmsPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) !=
-                PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS},
-                        MY_PERMISSIONS_REQUEST);
-            } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS},
-                        MY_PERMISSIONS_REQUEST);
-            }
-        } else {
-        }
-
-    }
-
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST: {
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) ==
-                            PackageManager.PERMISSION_GRANTED) {
+            case MY_PERMISSIONS_REQUEST:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    }
                 } else {
-                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS},
-                            MY_PERMISSIONS_REQUEST);
+                    requestPermissions(new String[]{Manifest.permission.READ_CONTACTS,
+                            Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST);
                 }
-                return;
-            }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public void checkSMSPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+                != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
+                Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
 
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            Intent ite = new Intent(this, ListesMembresActivity.class);
-            Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
-            startActivity(ite);
+            requestPermissions(new String[]{Manifest.permission.SEND_SMS,
+                    Manifest.permission.SEND_SMS}, MY_PERMISSIONS_REQUEST);
+
         }
-        return false;
     }
+
 }
